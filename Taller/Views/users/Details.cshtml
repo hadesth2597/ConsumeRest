@@ -1,0 +1,43 @@
+﻿@model Datalayer.users
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>users</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.us_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.us_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.us_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.us_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.us_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.us_status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_user }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

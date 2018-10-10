@@ -1,0 +1,29 @@
+﻿@model Taller.Common.Response
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Taller.RestModel.RootObject ws = (Taller.RestModel.RootObject)Model.data;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Temperatura</th>
+        <th>Actions</th>
+    </tr>
+    <tr>
+        <td>@ws.query.results.channel.item.condition.temp</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+
+
+</table>

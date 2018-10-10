@@ -1,0 +1,14 @@
+C:\Users\Eder\source\repos\Taller\Datalayer\bin\Debug\Datalayer.dll.config
+C:\Users\Eder\source\repos\Taller\Datalayer\bin\Debug\Datalayer.dll
+C:\Users\Eder\source\repos\Taller\Datalayer\bin\Debug\Datalayer.pdb
+C:\Users\Eder\source\repos\Taller\Datalayer\bin\Debug\EntityFramework.dll
+C:\Users\Eder\source\repos\Taller\Datalayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Eder\source\repos\Taller\Datalayer\bin\Debug\EntityFramework.xml
+C:\Users\Eder\source\repos\Taller\Datalayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Eder\source\repos\Taller\Datalayer\obj\Debug\Datalayer.csproj.CoreCompileInputs.cache
+C:\Users\Eder\source\repos\Taller\Datalayer\obj\Debug\Datalayer.csproj.CopyComplete
+C:\Users\Eder\source\repos\Taller\Datalayer\obj\Debug\Datalayer.dll
+C:\Users\Eder\source\repos\Taller\Datalayer\obj\Debug\Datalayer.pdb
+C:\Users\Eder\source\repos\Taller\Datalayer\obj\Debug\Datalayer.csprojAssemblyReference.cache
+C:\Users\Eder\source\repos\Taller\Datalayer\bin\Debug\HiQPdf.dll
+C:\Users\Eder\source\repos\Taller\Datalayer\bin\Debug\HiQPdf.dep

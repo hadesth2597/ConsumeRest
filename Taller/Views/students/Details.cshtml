@@ -1,0 +1,43 @@
+﻿@model Datalayer.students
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>students</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.std_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.std_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.std_email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_student }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

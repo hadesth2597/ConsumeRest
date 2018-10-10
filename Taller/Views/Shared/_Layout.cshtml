@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.4/sweetalert2.css" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-right">
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    @if (Convert.ToInt32(Session["is_logged"]) == 1)
+                    {
+                        @Html.Raw("<li><a>Bienvenido: " + Session["name"].ToString() + "</a></li>");
+                        <li>@Html.ActionLink("Salir", "Logout", "Login")</li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a data-toggle="modal" data-target="#myModalNorm">
+                                Iniciar Sesión
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        </footer>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModalNorm" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close"
+                            data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        Iniciar Sesión
+                    </h4>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="email" class="form-control"
+                                   id="exampleInputEmail1" placeholder="Enter email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Name</label>
+                            <input type="password" class="form-control"
+                                   id="exampleInputPassword1" placeholder="Password" />
+                        </div>
+                        <button type="button" class="btn btn-default login">Iniciar Sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.4/sweetalert2.js"></script>
+    <script>
+        $(document).ready(function () {
+                    $(".login").on("click", function () {
+                            $.ajax({
+                                url: "@Url.Action("Validate", "Login")",
+                                data: { email: $("#exampleInputEmail1").val(), name: $("#exampleInputPassword1").val()},
+                                success: function (data) {
+                                    debugger;
+                                    if (data == 1) {
+                                            window.location.href= '@Url.Content("~/users/Index")';
+                                    }
+                                    if (data == 0) {
+                                        swal("Opps!", "Usuario y/o contraseña erronea", "error");
+                                    }
+                                },
+                                beforeSend: function () {
+                                },
+                                error: function (request, status, error) {
+                                    swal("Opps!", "Ocurrio un error inesperado", "error");
+                                    console.error(request.responseText);
+                                    //alert(request.responseText);
+                                },
+                                complete: function (xhr, status) {
+                                    //show_Status_Modal_close_(null);
+                                }
+                            });
+                    });
+        });
+    </script>
+</body>
+</html>
